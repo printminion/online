@@ -498,7 +498,8 @@ app.definitions.Socket = L.Class.extend({
 
 			if (oldId && oldVersion && sameFile) {
 				if (this.WSDServer.Id !== oldId || this.WSDServer.Version !== oldVersion) {
-					alert(_('Server is now reachable. We have to refresh the page now.'));
+					if (!this._map.options.wopi)
+						alert(_('Server is now reachable. We have to refresh the page now.'));
 					window.location.reload();
 				}
 			}
